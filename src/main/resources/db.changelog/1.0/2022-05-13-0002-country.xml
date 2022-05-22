@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet id="2022-05-13-0002-country.xml" author="serpukhov">
+
+        <!-- Checking is there any tables with same name -->
+        <preConditions>
+            <not>
+                <tableExists tableName="country"/>
+            </not>
+        </preConditions>
+
+        <!-- Creating table -->
+        <createTable tableName="country">
+
+            <!-- Describing columns -->
+            <column name="id"
+                    type="NUMERIC(19,0)"
+                    autoIncrement="true">
+
+                <constraints nullable="false"
+                             primaryKey="true"/>
+            </column>
+
+            <column name="name"
+                    type="VARCHAR(100)">
+
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="movie_id"
+                    type="NUMERIC(19,0)">
+
+                <constraints nullable="false"
+                             foreignKeyName="fk_country_movie"
+                             references="movie(id)"
+                             deleteCascade="true"/>
+            </column>
+
+        </createTable>
+
+    </changeSet>
+
+</databaseChangeLog>

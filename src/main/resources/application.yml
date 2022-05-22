@@ -1,0 +1,21 @@
+# Configure file
+spring:
+
+  application:
+    name: M4U
+
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/M4UDB
+
+  liquibase:
+    enabled: true
+    change-log: classpath:db.changelog/db.changelog-master.xml
+
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: none
+
+    show-sql: true
