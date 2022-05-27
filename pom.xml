@@ -78,19 +78,19 @@
 
     <!-- liquibase maven plugin -->
     <build>
-    <plugins>
-        <plugin>
-            <groupId>org.liquibase</groupId>
-            <artifactId>liquibase-maven-plugin</artifactId>
-            <version>4.10.0</version>
-            <configuration>
-                <changeLogFile>src/main/resources/db.changelog/db.changelog-master.xml</changeLogFile>
-                <url>jdbc:mysql://localhost:3306/M4UDB</url>
-                <username>root</username>
-                <password>root</password>
-            </configuration>
-        </plugin>
-    </plugins>
+        <plugins>
+            <plugin>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-maven-plugin</artifactId>
+                <version>4.10.0</version>
+                <configuration>
+                    <changeLogFile>src/main/resources/db.changelog/db.changelog-master.xml</changeLogFile>
+                    <url>jdbc:mysql://localhost:3306/M4UDB</url>
+                    <username>root</username>
+                    <password>root</password>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 
 </project>

@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Data
 @Entity
@@ -32,12 +31,15 @@ public class Movie {
     @Column(name = "description")
     private String description;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "movie")
-    private List<Country> countryList;
+    @OneToOne(targetEntity = Country.class, cascade=CascadeType.ALL)
+    @JoinColumn(name = "country_in_movie")
+    private Country country;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "movie")
-    private List<Genre> genreList;
+    @OneToOne(targetEntity = Genre.class, cascade=CascadeType.ALL)
+    @JoinColumn(name = "genre_in_movie")
+    private Genre genre;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "movie")
-    private List<Actor> actorList;
+    @OneToOne(targetEntity = Actor.class, cascade=CascadeType.ALL)
+    @JoinColumn(name = "actor_in_movie")
+    private Actor actor;
 }

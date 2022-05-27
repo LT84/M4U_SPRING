@@ -24,11 +24,6 @@ public class CountryServiceImpl implements CountryService {
     }
 
     @Override
-    public List<Country> getByMovieId(int id) {
-        return countryRepository.findByMovieId(id);
-    }
-
-    @Override
     public Country update(int id, String nameCountry) {
         Country country = Country.builder()
                 .id(id)

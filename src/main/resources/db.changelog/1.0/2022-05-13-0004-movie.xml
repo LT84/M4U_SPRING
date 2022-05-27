@@ -45,14 +45,36 @@
             </column>
 
             <column name="description"
-                    type="VARCHAR(250)">
+                    type="VARCHAR(400)">
 
                 <constraints nullable="false"/>
+            </column>
+
+            <column name="country_in_movie"
+                    type="NUMERIC(19,0)">
+                <constraints nullable="false"
+                             foreignKeyName="fk_movie_country"
+                             references="country(id)"/>
+            </column>
+
+            <column name="genre_in_movie"
+                    type="NUMERIC(19,0)">
+
+                <constraints nullable="false"
+                             foreignKeyName="fk_movie_genre"
+                             references="genre(id)"/>
+            </column>
+
+            <column name="actor_in_movie"
+                    type="NUMERIC(19,0)">
+
+                <constraints nullable="false"
+                             foreignKeyName="fk_movie_actor"
+                             references="actor(id)"/>
             </column>
 
         </createTable>
 
     </changeSet>
-
 
 </databaseChangeLog>

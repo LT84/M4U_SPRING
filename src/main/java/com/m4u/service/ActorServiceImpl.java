@@ -9,7 +9,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class ActorServiceImpl implements ActorService{
+public class ActorServiceImpl implements ActorService {
 
     private final ActorRepository actorRepository;
 
@@ -21,11 +21,6 @@ public class ActorServiceImpl implements ActorService{
     @Override
     public List<Actor> getAll() {
         return actorRepository.findAll();
-    }
-
-    @Override
-    public List<Actor> getByMovieId(int id) {
-        return actorRepository.findByMovieId(id);
     }
 
     @Override

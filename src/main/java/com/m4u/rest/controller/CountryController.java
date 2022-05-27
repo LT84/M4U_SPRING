@@ -23,7 +23,7 @@ public class CountryController {
     }
 
     @PostMapping("/country{id}/country_name")
-    public void updateActorById(
+    public void updateCountryById(
             @PathVariable int id,
             @RequestParam String name
     ) {
@@ -31,16 +31,7 @@ public class CountryController {
     }
 
     @DeleteMapping("/country/{id}")
-    public void deleteActorById(@PathVariable int id) {
+    public void deleteCountryById(@PathVariable int id) {
         countryService.deleteById(id);
-    }
-
-    @GetMapping("/movie/{id}/country")
-    public List<CountryDto> getCountryByMovieId(@PathVariable int id) {
-        return countryService
-                .getByMovieId(id)
-                .stream()
-                .map(CountryDto::toDto)
-                .collect(Collectors.toList());
     }
 }

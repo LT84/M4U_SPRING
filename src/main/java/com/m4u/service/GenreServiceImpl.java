@@ -24,11 +24,6 @@ public class GenreServiceImpl implements GenreService {
     }
 
     @Override
-    public List<Genre> getByMovieId(int id) {
-        return genreRepository.findByMovieId(id);
-    }
-
-    @Override
     public Genre update(int id, String name) {
         Genre genre = Genre.builder()
                 .id(id)

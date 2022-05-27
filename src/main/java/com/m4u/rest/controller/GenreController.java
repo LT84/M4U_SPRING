@@ -14,7 +14,7 @@ public class GenreController {
     private final GenreService genreService;
 
     @GetMapping("/genre")
-    public List<GenreDto> getAllCountries() {
+    public List<GenreDto> getAllGenres() {
         return genreService
                 .getAll()
                 .stream()
@@ -33,14 +33,5 @@ public class GenreController {
     @DeleteMapping("/genre/{id}")
     public void deleteGenreById(@PathVariable int id) {
         genreService.deleteById(id);
-    }
-
-    @GetMapping("/movie/{id}/genre")
-    public List<GenreDto> getGenreByMovieId(@PathVariable int id) {
-        return genreService
-                .getByMovieId(id)
-                .stream()
-                .map(GenreDto::toDto)
-                .collect(Collectors.toList());
     }
 }

@@ -10,8 +10,6 @@ public interface GenreService {
 
     List<Genre> getAll();
 
-    List<Genre> getByMovieId(int id);
-
     Genre update(int id, String nameActor);
 
     void deleteById(int id);

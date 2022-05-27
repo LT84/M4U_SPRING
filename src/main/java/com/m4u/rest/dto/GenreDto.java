@@ -1,7 +1,6 @@
 package com.m4u.rest.dto;
 
 import com.m4u.domain.Genre;
-import com.m4u.domain.Movie;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,8 +16,8 @@ public class GenreDto {
 
     private String name;
 
-    public static Genre toDomainObject(ActorDto actorDto, Movie movie) {
-        return new Genre(actorDto.getId(), actorDto.getName(), movie);
+    public static Genre toDomainObject(GenreDto genreDto) {
+        return new Genre(genreDto.getId(), genreDto.getName());
     }
 
     public static GenreDto toDto(Genre genre) {

@@ -1,17 +1,10 @@
 package com.m4u.rest.dto;
 
-import com.m4u.domain.Actor;
-import com.m4u.domain.Country;
-import com.m4u.domain.Genre;
 import com.m4u.domain.Movie;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Data
 @Builder
@@ -29,14 +22,13 @@ public class MovieDto {
 
     private String description;
 
-    private List<CountryDto> CountryDtoList;
+    private CountryDto countryDto;
 
-    private List<GenreDto> GenreDtoList;
+    private GenreDto genreDto;
 
-    private List<ActorDto> ActorDtoList;
+    private ActorDto actorDto;
 
-    public static Movie toDomainObject(MovieDto movieDto, List<Country> countries,
-                                       List<Genre> genres, List<Actor> actors) {
+    public static Movie toDomainObject(MovieDto movieDto) {
 
         return new Movie(
                 movieDto.getId(),
@@ -44,34 +36,13 @@ public class MovieDto {
                 movieDto.getYear(),
                 movieDto.getPicUrl(),
                 movieDto.getDescription(),
-                countries,
-                genres,
-                actors
+                CountryDto.toDomainObject(movieDto.getCountryDto()),
+                GenreDto.toDomainObject(movieDto.getGenreDto()),
+                ActorDto.toDomainObject(movieDto.getActorDto())
         );
     }
 
     public static MovieDto toDto(Movie movie) {
-
-        List<CountryDto> countryDtoList;
-        if (movie.getCountryList() != null) {
-            countryDtoList = movie.getCountryList().stream().map(CountryDto::toDto).collect(Collectors.toList());
-        } else {
-            countryDtoList = new ArrayList<>();
-        }
-
-        List<GenreDto> genreDtoList;
-        if (movie.getGenreList() != null) {
-            genreDtoList = movie.getGenreList().stream().map(GenreDto::toDto).collect(Collectors.toList());
-        } else {
-            genreDtoList = new ArrayList<>();
-        }
-
-        List<ActorDto> actorDtoList;
-        if (movie.getActorList() != null) {
-            actorDtoList = movie.getActorList().stream().map(ActorDto::toDto).collect(Collectors.toList());
-        } else {
-            actorDtoList = new ArrayList<>();
-        }
 
         return new MovieDto(
                 movie.getId(),
@@ -79,11 +50,10 @@ public class MovieDto {
                 movie.getYear(),
                 movie.getPicUrl(),
                 movie.getDescription(),
-                countryDtoList,
-                genreDtoList,
-                actorDtoList
+                CountryDto.toDto(movie.getCountry()),
+                GenreDto.toDto(movie.getGenre()),
+                ActorDto.toDto(movie.getActor())
         );
-
     }
 }
 

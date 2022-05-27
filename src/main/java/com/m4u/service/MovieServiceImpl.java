@@ -17,17 +17,17 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public Movie insert(String nameMovie, String year, String picUrl,
-                        String description, List<Country> countryList,
-                        List<Genre> genreList, List<Actor> actorList) {
+                        String description, Country country,
+                        Genre genre, Actor actor) {
 
         Movie movie = Movie.builder()
                 .name(nameMovie)
                 .year(year)
                 .picUrl(picUrl)
                 .description(description)
-                .countryList(countryList)
-                .genreList(genreList)
-                .actorList(actorList)
+                .country(country)
+                .genre(genre)
+                .actor(actor)
                 .build();
 
         return movieRepository.save(movie);
@@ -35,8 +35,8 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public Movie update(int id, String nameMovie, String year, String picUrl,
-                        String description, List<Country> countryList,
-                        List<Genre> genreList, List<Actor> actorList) {
+                        String description, Country country,
+                        Genre genre, Actor actor) {
 
         Movie movie = Movie.builder()
                 .id(id)
@@ -44,9 +44,9 @@ public class MovieServiceImpl implements MovieService {
                 .year(year)
                 .picUrl(picUrl)
                 .description(description)
-                .countryList(countryList)
-                .genreList(genreList)
-                .actorList(actorList)
+                .country(country)
+                .genre(genre)
+                .actor(actor)
                 .build();
 
         return movieRepository.save(movie);

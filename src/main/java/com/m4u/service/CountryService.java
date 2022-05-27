@@ -10,8 +10,6 @@ public interface CountryService {
 
     List<Country> getAll();
 
-    List<Country> getByMovieId(int id);
-
     Country update(int id, String nameCountry);
 
     void deleteById(int id);

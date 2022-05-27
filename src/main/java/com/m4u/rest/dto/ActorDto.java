@@ -1,7 +1,6 @@
 package com.m4u.rest.dto;
 
 import com.m4u.domain.Actor;
-import com.m4u.domain.Movie;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,8 +16,8 @@ public class ActorDto {
 
     private String name;
 
-    public static Actor toDomainObject(ActorDto actorDto, Movie movie) {
-        return new Actor(actorDto.getId(), actorDto.getName(), movie);
+    public static Actor toDomainObject(ActorDto actorDto) {
+        return new Actor(actorDto.getId(), actorDto.getName());
     }
 
     public static ActorDto toDto(Actor actor) {

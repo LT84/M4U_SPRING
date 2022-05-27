@@ -23,7 +23,7 @@ public class ActorController {
     }
 
     @PostMapping("/actor{id}/actor_name")
-    public void updateActorById (
+    public void updateActorById(
             @PathVariable int id,
             @RequestParam String name
     ) {
@@ -33,15 +33,5 @@ public class ActorController {
     @DeleteMapping("/actor/{id}")
     public void deleteActorById(@PathVariable int id) {
         actorService.deleteById(id);
-    }
-
-    @GetMapping("/movie/{id}/actor")
-    public List<ActorDto> getActorByMovieId(@PathVariable int id) {
-
-        return actorService
-                .getByMovieId(id)
-                .stream()
-                .map(ActorDto::toDto)
-                .collect(Collectors.toList());
     }
 }

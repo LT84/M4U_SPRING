@@ -30,19 +30,8 @@
                 <constraints nullable="false"/>
             </column>
 
-            <column name="movie_id"
-                    type="NUMERIC(19,0)"
-            >
-
-                <constraints nullable="false"
-                             foreignKeyName="fk_genre_movie"
-                             references="movie(id)"
-                             deleteCascade="true"/>
-            </column>
-
         </createTable>
 
     </changeSet>
-
 
 </databaseChangeLog>

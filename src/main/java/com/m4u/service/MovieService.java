@@ -14,9 +14,9 @@ public interface MovieService {
             String year,
             String picUrl,
             String description,
-            List<Country> countryList,
-            List<Genre> genreList,
-            List<Actor> actorList
+            Country country,
+            Genre genre,
+            Actor actor
     );
 
     Movie update(
@@ -25,9 +25,9 @@ public interface MovieService {
             String year,
             String picUrl,
             String description,
-            List<Country> countryList,
-            List<Genre> genreList,
-            List<Actor> actorList
+            Country country,
+            Genre genre,
+            Actor actor
     );
 
     List<Movie> getAll();

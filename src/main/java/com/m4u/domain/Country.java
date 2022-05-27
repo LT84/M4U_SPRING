@@ -21,8 +21,4 @@ public class Country {
 
     @Column(name = "name")
     private String name;
-
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "movie_id")
-    private Movie movie;
 }

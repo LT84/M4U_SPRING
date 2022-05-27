@@ -10,8 +10,6 @@ public interface ActorService {
 
     List<Actor> getAll();
 
-    List<Actor> getByMovieId(int id);
-
     Actor update(int id, String nameActor);
 
     void deleteById(int id);

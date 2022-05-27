@@ -1,7 +1,6 @@
 package com.m4u.rest.dto;
 
 import com.m4u.domain.Country;
-import com.m4u.domain.Movie;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,8 +16,8 @@ public class CountryDto {
 
     private String name;
 
-    public static Country toDomainObject(CountryDto countryDto, Movie movie) {
-        return new Country(countryDto.getId(), countryDto.getName(), movie);
+    public static Country toDomainObject(CountryDto countryDto) {
+        return new Country(countryDto.getId(), countryDto.getName());
     }
 
     public static CountryDto toDto(Country country) {
